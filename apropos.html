@@ -1,10 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>À propos - FIMA</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0; font-family: 'Inter', sans-serif; background: #fff; color: #111;
+    }
+    header {
+      position: sticky; top: 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    .container {
+      max-width: 1200px; margin: 0 auto; padding: 0 1rem;
+      display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.8rem; margin: 0; color: #111;
+    }
+    nav ul {
+      list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0;
+    }
+    nav a {
+      font-weight: 600; font-size: 1rem; padding: 0.5rem 0; color: #555;
+      border-bottom: 3px solid transparent; transition: border-color 0.3s, color 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: #000; border-bottom-color: #000;
+    }
+    main {
+      max-width: 900px; margin: 4rem auto; padding: 0 1rem;
+      line-height: 1.6;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.5rem; margin-bottom: 2rem; text-align: center;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    .edition-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .edition-gallery img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .edition-gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -19,34 +70,43 @@
           <li><a href="billetterie.html">Billetterie</a></li>
           <li><a href="apropos.html" class="active">À propos</a></li>
           <li><a href="alphadi.html">Alphadi</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
+  <main>
+    <h2>Histoire du Festival International de la Mode Africaine (FIMA)</h2>
+    <section>
+      <p>
+        Créé en 1998 par le célèbre styliste nigérien <strong>Alphadi</strong>, le FIMA est devenu une plateforme majeure pour la promotion de la mode africaine dans le monde.
+        Chaque édition célèbre la richesse culturelle, la créativité et l’innovation des créateurs africains et de la diaspora.
+      </p>
+      <p>
+        Le festival se déroule à Niamey, au Niger, et réunit depuis plus de deux décennies designers, artistes, professionnels et passionnés de mode autour d’un événement exceptionnel mêlant défilés, expositions, concerts et concours.
+      </p>
+    </section>
 
-  <main class="section">
-    <h2>À propos du FIMA</h2>
-    <p>Le Forum International de la Mode Africaine (FIMA) a été fondé en 1998 par Alphadi, couturier nigérien de renommée internationale. L’événement se veut une vitrine mondiale pour les créateurs africains et une plateforme de dialogue culturel et artistique.</p>
+    <section>
+      <h3>Anciennes éditions marquantes</h3>
+      <div class="edition-gallery">
+        <img src="images/fima-edition2019.jpg" alt="FIMA édition 2019 - Défilé" />
+        <img src="images/fima-edition2017.jpg" alt="FIMA édition 2017 - Cérémonie" />
+        <img src="images/fima-edition2015.jpg" alt="FIMA édition 2015 - Créateurs" />
+        <img src="images/fima-edition2013.jpg" alt="FIMA édition 2013 - Spectacle" />
+      </div>
+      <p style="margin-top: 1rem;">
+        Ces éditions ont permis de mettre en lumière des talents qui sont aujourd’hui des références mondiales dans la mode africaine.
+      </p>
+    </section>
 
-    <h3>Nos objectifs</h3>
-    <ul>
-      <li>✨ Promouvoir la mode et les arts africains</li>
-      <li>🕊️ Favoriser la paix et la coopération culturelle</li>
-      <li>🎓 Soutenir la formation des jeunes créateurs</li>
-      <li>🌍 Positionner l’Afrique sur la scène internationale</li>
-    </ul>
-
-    <h3>Partenaires</h3>
-    <ul>
-      <li>UNESCO</li>
-      <li>Union Africaine</li>
-      <li>IFM Paris</li>
-      <li>Fondation Alphadi</li>
-    </ul>
+    <section>
+      <h3>Une vision pour la mode africaine</h3>
+      <p>
+        Le FIMA promeut une mode authentique, respectueuse des traditions tout en étant résolument moderne et innovante.
+        Le festival agit également comme un vecteur de paix et de dialogue culturel, à travers la créativité.
+      </p>
+    </section>
   </main>
-
-  <footer>
-    <p>&copy; 2025 FIMA - Tous droits réservés.</p>
-  </footer>
 </body>
 </html>
