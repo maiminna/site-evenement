@@ -1,10 +1,91 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Designers - FIMA</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0; font-family: 'Inter', sans-serif; background: #fff; color: #111;
+    }
+    header {
+      position: sticky; top: 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    .container {
+      max-width: 1200px; margin: 0 auto; padding: 0 1rem;
+      display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.8rem; margin: 0; color: #111;
+    }
+    nav ul {
+      list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0;
+    }
+    nav a {
+      font-weight: 600; font-size: 1rem; padding: 0.5rem 0; color: #555;
+      border-bottom: 3px solid transparent; transition: border-color 0.3s, color 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: #000; border-bottom-color: #000;
+    }
+    main {
+      max-width: 1200px; margin: 4rem auto; padding: 0 1rem;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.5rem; margin-bottom: 2rem; text-align: center;
+    }
+    .grid-designers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+    }
+    .designer-card {
+      border: 1px solid #eee;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      background: #fff;
+      transition: transform 0.3s ease;
+    }
+    .designer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .designer-image img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+    .designer-info {
+      padding: 1rem 1.5rem 2rem;
+    }
+    .designer-info h3 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      color: #111;
+    }
+    .designer-info p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 0.5rem;
+      min-height: 60px;
+    }
+    .designer-links a {
+      margin-right: 1rem;
+      color: #000;
+      font-weight: 600;
+      text-decoration: underline;
+      font-size: 0.9rem;
+    }
+    .designer-links a:hover {
+      color: #444;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -19,38 +100,54 @@
           <li><a href="billetterie.html">Billetterie</a></li>
           <li><a href="apropos.html">À propos</a></li>
           <li><a href="alphadi.html">Alphadi</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
-  <main class="section">
-    <h2>Designers sélectionnés</h2>
-    <p>Chaque année, le FIMA met à l’honneur une sélection prestigieuse de créateurs de mode africains et internationaux. Leur travail reflète l’innovation, le patrimoine et l’audace stylistique du continent.</p>
-
-    <div class="designer">
-      <h3>Imane Ayissi (Cameroun)</h3>
-      <p>Reconnu pour son mélange subtil de coupes haute couture et de textiles africains traditionnels, Imane est un ambassadeur de la mode afro-éthique.</p>
-    </div>
-
-    <div class="designer">
-      <h3>Lamine Kouyaté - Xuly Bët (Mali/Sénégal)</h3>
-      <p>Fondateur du label Xuly Bët, il est connu pour son style punk afro et sa créativité déconstructive.</p>
-    </div>
-
-    <div class="designer">
-      <h3>Lisa Folawiyo (Nigeria)</h3>
-      <p>Réinvente les tissus ankara avec une élégance contemporaine. Ses pièces sont un hommage au raffinement africain.</p>
-    </div>
-
-    <div class="designer">
-      <h3>Alphadi (Niger)</h3>
-      <p>Fondateur du FIMA, il incarne une vision panafricaine de la mode, alliant patrimoine culturel et sophistication internationale.</p>
+  <main>
+    <h2>Designers mis en avant par le FIMA</h2>
+    <div class="grid-designers">
+      <article class="designer-card">
+        <div class="designer-image">
+          <img src="images/designer1.jpg" alt="Créateur A" />
+        </div>
+        <div class="designer-info">
+          <h3>Créateur A</h3>
+          <p>Créateur de mode innovant mêlant traditions africaines et design contemporain.</p>
+          <div class="designer-links">
+            <a href="https://instagram.com/createurA" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://createura.com" target="_blank" rel="noopener">Site web</a>
+          </div>
+        </div>
+      </article>
+      <article class="designer-card">
+        <div class="designer-image">
+          <img src="images/designer2.jpg" alt="Créatrice B" />
+        </div>
+        <div class="designer-info">
+          <h3>Créatrice B</h3>
+          <p>Spécialisée dans la haute couture africaine avec une touche avant-gardiste.</p>
+          <div class="designer-links">
+            <a href="https://instagram.com/creatriceB" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://creatriceb.com" target="_blank" rel="noopener">Site web</a>
+          </div>
+        </div>
+      </article>
+      <article class="designer-card">
+        <div class="designer-image">
+          <img src="images/designer3.jpg" alt="Créateur C" />
+        </div>
+        <div class="designer-info">
+          <h3>Créateur C</h3>
+          <p>Jeune talent émergent célébrant la diversité culturelle à travers ses créations.</p>
+          <div class="designer-links">
+            <a href="https://instagram.com/createurC" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://createurc.com" target="_blank" rel="noopener">Site web</a>
+          </div>
+        </div>
+      </article>
     </div>
   </main>
-
-  <footer>
-    <p>&copy; 2025 FIMA - Tous droits réservés.</p>
-  </footer>
 </body>
 </html>
