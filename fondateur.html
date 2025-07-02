@@ -1,10 +1,59 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alphadi - FIMA</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alphadi - Fondateur du FIMA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0; font-family: 'Inter', sans-serif; background: #fff; color: #111;
+    }
+    header {
+      position: sticky; top: 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    .container {
+      max-width: 1200px; margin: 0 auto; padding: 0 1rem;
+      display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.8rem; margin: 0; color: #111;
+    }
+    nav ul {
+      list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0;
+    }
+    nav a {
+      font-weight: 600; font-size: 1rem; padding: 0.5rem 0; color: #555;
+      border-bottom: 3px solid transparent; transition: border-color 0.3s, color 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: #000; border-bottom-color: #000;
+    }
+    main {
+      max-width: 900px; margin: 4rem auto; padding: 0 1rem;
+      line-height: 1.6;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.5rem; margin-bottom: 2rem; text-align: center;
+    }
+    .profile-img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,30 +67,30 @@
           <li><a href="concours.html">Concours</a></li>
           <li><a href="billetterie.html">Billetterie</a></li>
           <li><a href="apropos.html">À propos</a></li>
-          <li><a href="alphadi.html" class="active">Alphadi</a></li>
+          <li><a href="fondateur.html" class="active">Alphadi</a></li>
+          <li><a href="histoire.html">Histoire</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="presse.html">Presse</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
-  <main class="section">
-    <h2>Alphadi, le Magicien du désert</h2>
-    <p>Alphadi, de son vrai nom Sidahmed Seidnaly, est une figure emblématique de la mode africaine. Fondateur du FIMA, il milite pour la reconnaissance du design africain et le dialogue entre les cultures.</p>
-
-    <h3>Parcours</h3>
-    <ul>
-      <li>🎓 Études de mode à Paris</li>
-      <li>👗 Création de la marque Alphadi en 1984</li>
-      <li>🌍 Défilés internationaux à Paris, New York, Tokyo</li>
-      <li>🏅 Lauréat du prix de l’UNESCO pour la paix</li>
-    </ul>
-
-    <h3>Son engagement</h3>
-    <p>Avec le FIMA, Alphadi veut faire du désert un espace d’expression artistique, ouvert à la jeunesse, à la diversité et à la paix. Il promeut un art métissé, ancré dans les racines africaines mais tourné vers le monde.</p>
+  <main>
+    <h2>Alphadi - Le Maître de la Mode Africaine</h2>
+    <img src="images/alphadi.jpg" alt="Portrait d'Alphadi" class="profile-img" />
+    <section>
+      <p>
+        De son vrai nom <strong>Seidnaly Sidhamed</strong>, Alphadi est un créateur de mode nigérien, reconnu comme l'un des pionniers et figures emblématiques de la mode africaine contemporaine.
+        Né en 1957 à Tombouctou, il s'est imposé sur la scène internationale par ses créations mêlant tradition et modernité, mettant en valeur les tissus, couleurs et savoir-faire africains.
+      </p>
+      <p>
+        En 1998, il fonde le <em>Festival International de la Mode Africaine (FIMA)</em> pour promouvoir les talents du continent et créer une vitrine incontournable pour la mode africaine.  
+        Son engagement va au-delà du stylisme, il œuvre pour l'innovation culturelle, la paix par la créativité et le rayonnement de l'Afrique dans le monde.
+      </p>
+      <p>
+        Alphadi a reçu de nombreuses distinctions internationales et continue d'inspirer une nouvelle génération de créateurs africains grâce à sa vision audacieuse et son respect profond des racines culturelles.
+      </p>
+    </section>
   </main>
-
-  <footer>
-    <p>&copy; 2025 FIMA - Tous droits réservés.</p>
-  </footer>
 </body>
 </html>
