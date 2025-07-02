@@ -4,40 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FIMA - Festival International de la Mode Africaine</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet" />
   <style>
-    /* Reset & base */
+    /* Reset & basics */
     * {
       box-sizing: border-box;
     }
-    body {
-      margin: 0; font-family: 'Inter', sans-serif; background: #fff; color: #111;
-      line-height: 1.6;
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
+      scroll-behavior: smooth;
     }
-    a {
-      color: #000; text-decoration: none; transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #444;
-    }
-    /* Header */
+
+    /* Navigation */
     header {
-      position: fixed; top: 0; left: 0; right: 0;
+      position: fixed;
+      top: 0; left: 0; right: 0;
       background: rgba(255 255 255 / 0.95);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      z-index: 10000;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      z-index: 1000;
+      backdrop-filter: saturate(180%) blur(10px);
     }
-    .container {
-      max-width: 1200px; margin: 0 auto; padding: 0 1rem;
-      display: flex; justify-content: space-between; align-items: center; height: 60px;
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    header h1 {
+    nav h1 {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 1.8rem;
       margin: 0;
-      color: #111;
-      user-select: none;
+      color: #222;
+      letter-spacing: 2px;
     }
     nav ul {
       list-style: none;
@@ -46,277 +50,224 @@
       margin: 0;
       padding: 0;
     }
-    nav a {
+    nav ul li a {
+      text-decoration: none;
+      color: #444;
       font-weight: 600;
       font-size: 1rem;
-      padding: 0.5rem 0;
-      border-bottom: 3px solid transparent;
+      transition: color 0.3s ease;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
     }
-    nav a.active,
-    nav a:hover {
-      border-bottom-color: #000;
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #b5803f; /* couleur or chic */
+      background: rgba(181, 128, 63, 0.15);
     }
-    /* Hero with YouTube iframe background */
-    .hero {
+
+    /* Hero video section */
+    .hero-video-container {
       position: relative;
-      height: 80vh;
+      width: 100vw;
+      height: 60vh;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-align: center;
-      padding: 0 1rem;
-      margin-top: 60px; /* header height */
+      margin-top: 64px; /* hauteur header */
+      box-shadow: inset 0 0 50px rgb(0 0 0 / 0.3);
     }
-    .hero iframe {
+    .hero-video-container iframe {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 120vw;  /* Slightly larger to cover */
-      height: 67.5vw; /* 16:9 ratio */
-      min-height: 100vh;
-      min-width: 177.78vh; /* 16:9 ratio based on height */
+      width: 177.77vh; /* 100 * 16/9 */
+      height: 100vh;
       transform: translate(-50%, -50%);
-      z-index: -1;
       pointer-events: none;
-      filter: brightness(0.45);
+      filter: brightness(0.6);
     }
-    .hero-content {
-      max-width: 700px;
-      z-index: 2;
-    }
-    .hero-content h2 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
-    }
-    .hero-content a.button {
-      background: #000;
+
+    /* Overlay texte */
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: #fff;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
+      text-align: center;
+      max-width: 90%;
+      padding: 0 1rem;
+      user-select: none;
+    }
+    .hero-overlay h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
       font-weight: 700;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    }
+    .hero-overlay p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+      line-height: 1.4;
+    }
+    .hero-overlay a.button {
+      background-color: #b5803f;
+      color: #fff;
+      font-weight: 700;
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
       font-size: 1.1rem;
-      text-transform: uppercase;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      display: inline-block;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(181,128,63,0.6);
       transition: background-color 0.3s ease;
+      display: inline-block;
+      user-select: none;
     }
-    .hero-content a.button:hover {
-      background: #444;
+    .hero-overlay a.button:hover {
+      background-color: #8a622d;
+      box-shadow: 0 6px 18px rgba(138, 98, 45, 0.8);
     }
-    /* Sections */
-    main {
-      max-width: 1000px;
-      margin: 4rem auto 6rem;
+
+    /* Section Programme */
+    section.programme {
+      max-width: 900px;
+      margin: 3rem auto 6rem;
       padding: 0 1rem;
     }
-    .intro {
-      margin-bottom: 3rem;
-      text-align: center;
-      font-size: 1.1rem;
-      color: #333;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .programme {
-      max-width: 1000px;
-      margin: 3rem auto 4rem;
-      padding: 2rem 2rem 2rem 2rem;
-      background: #fafafa;
-      border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    }
-    .programme h3 {
+    section.programme h3 {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      color: #111;
-    }
-    .programme-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-    .programme article h4 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
       color: #222;
+      border-bottom: 2px solid #b5803f;
+      padding-bottom: 0.3rem;
     }
-    .programme ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      color: #444;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-    .programme ul li {
-      margin-bottom: 0.75rem;
-    }
-    .features {
+    .programme-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
     }
-    .feature {
-      background: #fafafa;
-      border-radius: 1rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      padding: 2rem 1.5rem;
-      text-align: center;
+    .programme-item {
+      background: #faf7f0;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      box-shadow: 0 6px 20px rgb(181 128 63 / 0.15);
+      font-size: 1rem;
+      color: #444;
       transition: box-shadow 0.3s ease;
     }
-    .feature:hover {
-      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+    .programme-item:hover {
+      box-shadow: 0 8px 28px rgb(181 128 63 / 0.35);
     }
-    .feature h3 {
+    .programme-item h4 {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #111;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #b5803f;
     }
-    .feature p {
-      color: #555;
-      font-size: 1rem;
-      line-height: 1.5;
+    .programme-item time {
+      font-weight: 600;
+      color: #8a622d;
+      display: block;
+      margin-bottom: 0.8rem;
     }
+
     /* Footer */
     footer {
-      background: #111;
-      color: #eee;
-      padding: 1.5rem 1rem;
       text-align: center;
+      padding: 2rem 1rem;
+      color: #666;
       font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      background: #fafafa;
     }
+
     /* Responsive adjustments */
-    @media (max-width: 600px) {
-      .hero-content h2 {
-        font-size: 2rem;
+    @media (max-width: 640px) {
+      .hero-overlay h2 {
+        font-size: 2.2rem;
       }
-      .hero-content p {
+      .hero-overlay p {
         font-size: 1rem;
       }
-      nav ul {
-        gap: 1rem;
+      .programme-list {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="container" role="banner">
+    <nav>
       <h1>FIMA</h1>
-      <nav role="navigation" aria-label="Menu principal">
-        <ul>
-          <li><a href="index.html" class="active">Accueil</a></li>
-          <li><a href="designers.html">Designers</a></li>
-          <li><a href="artistes.html">Artistes</a></li>
-          <li><a href="concours.html">Concours</a></li>
-          <li><a href="billeterie.html">Billeterie</a></li>
-          <li><a href="apropos.html">À propos</a></li>
-          <li><a href="presse.html">Presse</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+      <ul>
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="designers.html">Designers</a></li>
+        <li><a href="artistes.html">Artistes</a></li>
+        <li><a href="concours.html">Concours</a></li>
+        <li><a href="billetterie.html">Billetterie</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="presse.html">Presse</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <section class="hero" aria-label="Vidéo de présentation du FIMA">
-      <iframe 
-        src="https://www.youtube.com/embed/Ww8magjkEfQ?autoplay=1&mute=1&loop=1&playlist=Ww8magjkEfQ&controls=0&modestbranding=1&showinfo=0&rel=0" 
-        title="Vidéo du Festival International de la Mode Africaine"
-        frameborder="0" allow="autoplay; fullscreen" allowfullscreen
-        loading="lazy"
-        ></iframe>
-      <div class="hero-content">
-        <h2>Festival International de la Mode Africaine</h2>
-        <p>Un rendez-vous incontournable de la créativité africaine, fondé par le légendaire styliste Alphadi. Découvrez les plus grands créateurs, artistes et l’esprit du luxe afro-chic.</p>
-        <a href="billetterie.html" class="button" aria-label="Réserver vos places">Réservez vos places</a>
-      </div>
-    </section>
+  <section class="hero-video-container" aria-label="Vidéo de présentation du FIMA">
+    <iframe 
+      src="https://www.youtube.com/embed/Ww8magjkEfQ?autoplay=1&mute=1&loop=1&playlist=Ww8magjkEfQ&controls=0&showinfo=0&modestbranding=1" 
+      title="Vidéo promotionnelle du Festival International de la Mode Africaine"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+    <div class="hero-overlay">
+      <h2>Festival International de la Mode Africaine</h2>
+      <p>Un rendez-vous unique de la créativité et du luxe afro-chic, fondé par Alphadi.</p>
+      <a href="billetterie.html" class="button" role="button">Réservez vos places</a>
+    </div>
+  </section>
 
-    <section class="intro" aria-label="Présentation du FIMA">
-      <p>
-        Le FIMA célèbre la richesse culturelle et la créativité des talents africains, réunissant designers, artistes, musiciens et passionnés du monde entier. Plus qu’un festival, c’est un mouvement culturel porteur de paix et d’innovation.
-      </p>
-    </section>
-
-    <section class="programme" aria-label="Programme quotidien du FIMA du 13 au 15 décembre">
-      <h3>Programme Quotidien - 13 au 15 décembre</h3>
-      <div class="programme-grid">
-        <article>
-          <h4>13 Décembre</h4>
-          <ul>
-            <li><strong>10h00 - 12h00 :</strong> Ouverture officielle & discours d'Alphadi</li>
-            <li><strong>14h00 - 17h00 :</strong> Défilés des créateurs émergents</li>
-            <li><strong>19h00 - 21h00 :</strong> Concert live et performances artistiques</li>
-          </ul>
-        </article>
-        <article>
-          <h4>14 Décembre</h4>
-          <ul>
-            <li><strong>09h30 - 12h30 :</strong> Ateliers et masterclass avec designers</li>
-            <li><strong>14h00 - 18h00 :</strong> Concours des jeunes créateurs</li>
-            <li><strong>20h00 - 22h00 :</strong> Soirée gala & remise des prix</li>
-          </ul>
-        </article>
-        <article>
-          <h4>15 Décembre</h4>
-          <ul>
-            <li><strong>10h00 - 13h00 :</strong> Expositions & rencontres professionnelles</li>
-            <li><strong>15h00 - 18h00 :</strong> Défilé des collections finales</li>
-            <li><strong>19h00 - 21h00 :</strong> Clôture & soirée networking</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="features" aria-label="Sections principales du site">
-      <article class="feature" tabindex="0">
-        <h3><a href="designers.html">Designers</a></h3>
-        <p>Découvrez les créateurs de mode mis en avant par le FIMA, véritables artisans du style afro-chic.</p>
+  <section class="programme" aria-labelledby="programme-title">
+    <h3 id="programme-title">Programme du festival – 13 au 15 décembre</h3>
+    <div class="programme-list">
+      <article class="programme-item" tabindex="0">
+        <time datetime="2025-12-13T10:00">13 décembre - 10h00</time>
+        <h4>Ouverture officielle & cocktail</h4>
+        <p>Cérémonie d'ouverture avec discours d’Alphadi et présentation des créateurs invités.</p>
       </article>
-      <article class="feature" tabindex="0">
-        <h3><a href="artistes.html">Artistes</a></h3>
-        <p>Les talents artistiques qui accompagnent la mode africaine : musiciens, photographes, performeurs.</p>
+      <article class="programme-item" tabindex="0">
+        <time datetime="2025-12-13T15:00">13 décembre - 15h00</time>
+        <h4>Défilé des jeunes créateurs</h4>
+        <p>Présentation des talents émergents sélectionnés pour cette édition.</p>
       </article>
-      <article class="feature" tabindex="0">
-        <h3><a href="concours.html">Concours</a></h3>
-        <p>Le déroulé des concours de créateurs, avec la sélection des talents les plus prometteurs.</p>
+      <article class="programme-item" tabindex="0">
+        <time datetime="2025-12-14T14:00">14 décembre - 14h00</time>
+        <h4>Exposition et atelier textile</h4>
+        <p>Découverte des savoir-faire traditionnels africains et techniques contemporaines.</p>
       </article>
-      <article class="feature" tabindex="0">
-        <h3><a href="billeterie.html">Billeterie</a></h3>
-        <p>Réservez vos billets en ligne pour vivre l’expérience unique du FIMA en direct.</p>
+      <article class="programme-item" tabindex="0">
+        <time datetime="2025-12-14T19:00">14 décembre - 19h00</time>
+        <h4>Concert afro-jazz & networking</h4>
+        <p>Ambiance festive avec des artistes africains de renom et opportunités d’échanges.</p>
       </article>
-      <article class="feature" tabindex="0">
-        <h3><a href="apropos.html">À propos</a></h3>
-        <p>Plongez dans l’histoire du FIMA et découvrez les moments forts des éditions précédentes.</p>
+      <article class="programme-item" tabindex="0">
+        <time datetime="2025-12-15T16:00">15 décembre - 16h00</time>
+        <h4>Finale du concours de créateurs</h4>
+        <p>Jugement et remise des prix aux meilleurs créateurs de la saison.</p>
       </article>
-      <article class="feature" tabindex="0">
-        <h3><a href="presse.html">Espace Presse</a></h3>
-        <p>texte pour la presse.</p>
+      <article class="programme-item" tabindex="0">
+        <time datetime="2025-12-15T20:00">15 décembre - 20h00</time>
+        <h4>Clôture & soirée gala</h4>
+        <p>Soirée de clôture avec défilé des collections gagnantes et dîner de prestige.</p>
       </article>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 FIMA – Tous droits réservés. Conçu avec passion pour l’Afrique et ses talents.</p>
+    <p>&copy; 2025 FIMA - Tous droits réservés. Conçu avec passion pour l’Afrique et ses talents.</p>
   </footer>
+
 </body>
 </html>
