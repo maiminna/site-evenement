@@ -1,75 +1,163 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FIMA - Festival International de la Mode Africaine</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;500&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Artistes - FIMA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0; font-family: 'Inter', sans-serif; background: #fff; color: #111;
+    }
+    header {
+      position: sticky; top: 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    .container {
+      max-width: 1200px; margin: 0 auto; padding: 0 1rem;
+      display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.8rem; margin: 0; color: #111;
+    }
+    nav ul {
+      list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0;
+    }
+    nav a {
+      font-weight: 600; font-size: 1rem; padding: 0.5rem 0; color: #555;
+      border-bottom: 3px solid transparent; transition: border-color 0.3s, color 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: #000; border-bottom-color: #000;
+    }
+    main {
+      max-width: 1200px; margin: 4rem auto; padding: 0 1rem;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.5rem; margin-bottom: 2rem; text-align: center;
+    }
+    .grid-artistes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+    }
+    .artiste-card {
+      border: 1px solid #eee;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      background: #fff;
+      transition: transform 0.3s ease;
+    }
+    .artiste-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .artiste-image img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+    .artiste-info {
+      padding: 1rem 1.5rem 2rem;
+    }
+    .artiste-info h3 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      color: #111;
+    }
+    .artiste-info p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 0.5rem;
+      min-height: 60px;
+    }
+    .artiste-links a {
+      margin-right: 1rem;
+      color: #000;
+      font-weight: 600;
+      text-decoration: underline;
+      font-size: 0.9rem;
+    }
+    .artiste-links a:hover {
+      color: #444;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      padding-top: 25px;
+      height: 0;
+      margin-top: 1rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="container">
       <h1>FIMA</h1>
       <nav>
-        <a href="#designers">Designers</a>
-        <a href="#artistes">Artistes</a>
-        <a href="#concours">Concours</a>
-        <a href="#billetterie">Billetterie</a>
-        <a href="#apropos">À propos</a>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="designers.html">Designers</a></li>
+          <li><a href="artistes.html" class="active">Artistes</a></li>
+          <li><a href="concours.html">Concours</a></li>
+          <li><a href="billetterie.html">Billetterie</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="alphadi.html">Alphadi</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </header>
-
-  <section class="hero">
-    <div class="overlay">
-      <div class="hero-text">
-        <h2>Festival International de la Mode Africaine</h2>
-        <p>Mode, culture et élégance au cœur de l'Afrique</p>
-      </div>
+  <main>
+    <h2>Artistes à découvrir au FIMA</h2>
+    <div class="grid-artistes">
+      <article class="artiste-card">
+        <div class="artiste-image">
+          <img src="images/artiste1.jpg" alt="Artiste A" />
+        </div>
+        <div class="artiste-info">
+          <h3>Artiste A</h3>
+          <p>Chanteur et performeur alliant traditions africaines et modernité musicale.</p>
+          <div class="artiste-links">
+            <a href="https://instagram.com/artisteA" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://youtube.com/artisteA" target="_blank" rel="noopener">YouTube</a>
+          </div>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_ARTISTE_A" title="Clip Artiste A" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
+      <article class="artiste-card">
+        <div class="artiste-image">
+          <img src="images/artiste2.jpg" alt="Artiste B" />
+        </div>
+        <div class="artiste-info">
+          <h3>Artiste B</h3>
+          <p>Danseuse contemporaine intégrant les rythmes africains dans ses spectacles.</p>
+          <div class="artiste-links">
+            <a href="https://instagram.com/artisteB" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://youtube.com/artisteB" target="_blank" rel="noopener">YouTube</a>
+          </div>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_ARTISTE_B" title="Performance Artiste B" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
     </div>
-  </section>
-
-  <section id="designers" class="content-section">
-    <div class="container">
-      <h3>Les Designers</h3>
-      <p>FIMA accueille les plus grands noms de la mode africaine et internationale. Découvrez les créateurs emblématiques ainsi que les talents émergents qui font rayonner le continent à travers leurs collections audacieuses.</p>
-    </div>
-  </section>
-
-  <section id="artistes" class="content-section alt">
-    <div class="container">
-      <h3>Les Artistes</h3>
-      <p>Musiciens, performers, plasticiens... le FIMA donne la parole aux artistes pour faire vibrer les scènes du festival. Une programmation éclectique qui relie tradition, modernité et expression libre.</p>
-    </div>
-  </section>
-
-  <section id="concours" class="content-section">
-    <div class="container">
-      <h3>Concours de Jeunes Créateurs</h3>
-      <p>Le FIMA soutient la relève à travers son concours emblématique. Chaque année, de jeunes stylistes venus de toute l’Afrique viennent présenter leur vision et concourent pour une reconnaissance internationale.</p>
-    </div>
-  </section>
-
-  <section id="billetterie" class="content-section alt">
-    <div class="container">
-      <h3>Billetterie</h3>
-      <p>Réservez votre place pour vivre une expérience unique. Plusieurs options disponibles : Pass Journée, Pass Festival, Accès VIP. Bientôt disponible ici !</p>
-    </div>
-  </section>
-
-  <section id="apropos" class="content-section">
-    <div class="container">
-      <h3>À propos du FIMA</h3>
-      <p>Créé en 1998 par le styliste Alphadi, le FIMA est une plateforme culturelle panafricaine majeure, mettant à l’honneur la paix, la jeunesse et la créativité à travers la mode et les arts.</p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 FIMA. Tous droits réservés.</p>
-    </div>
-  </footer>
+  </main>
 </body>
 </html>
